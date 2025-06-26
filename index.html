@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Impressive Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --main-bg: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      --glass-bg: rgba(255, 255, 255, 0.1);
+      --glass-border: rgba(255, 255, 255, 0.2);
+      --highlight: #00ffe7;
+      --button-glow: 0 0 15px #00ffe7;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background: var(--main-bg);
+      color: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: transparent;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #00ffe7, #00bfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #00ffe7;
+    }
+
+    section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #00ffe7;
+      display: inline-block;
+      animation: fadeInLeft 1s ease;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: #ddd;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 30px rgba(0, 255, 231, 0.3);
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 1.2rem;
+    }
+
+    .card-content h3 {
+      margin-bottom: 0.5rem;
+      color: #00ffe7;
+    }
+
+    form input, form textarea, form button {
+      width: 100%;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+    }
+
+    form input, form textarea {
+      background: #1a1a1a;
+      color: #fff;
+      border: 1px solid #333;
+    }
+
+    form button {
+      background: #00ffe7;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: var(--button-glow);
+      transition: 0.3s;
+    }
+
+    form button:hover {
+      background: #00e6d0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+
+    /* === Animations === */
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-30px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚀 My Awesome Portfolio</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home">
+    <h2>Hello!</h2>
+    <p>I’m a passionate web developer crafting beautiful, performant, and modern websites. Dive into my best work below.</p>
+  </section>
+
+  <section id="projects">
+    <h2>My Work</h2>
+    <div class="projects" id="projectContainer"></div>
+  </section>
+
+  <section id="contact">
+    <h2>Let's Connect</h2>
+    <form id="contactForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <textarea id="message" placeholder="Write your message..." required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Your Name. Built with 💙 and creativity.</p>
+  </footer>
+
+  <script defer>
+    const projects = [
+      { title: "Neon Portfolio", desc: "A stunning portfolio using modern CSS effects.", img: "https://via.placeholder.com/400x180?text=Neon+Portfolio" },
+      { title: "Crypto Dashboard", desc: "Live tracking dashboard for crypto markets.", img: "https://via.placeholder.com/400x180?text=Crypto+App" },
+      { title: "Product Landing Page", desc: "A smooth scroll, elegant product showcase.", img: "https://via.placeholder.com/400x180?text=Landing+Page" }
+    ];
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const container = document.getElementById('projectContainer');
+      projects.forEach(proj => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img loading="lazy" src="${proj.img}" alt="${proj.title}" />
+          <div class="card-content">
+            <h3>${proj.title}</h3>
+            <p>${proj.desc}</p>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+
+      // Form Validation
+      document.getElementById('contactForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if (name && email.includes('@') && msg.length > 5) {
+          alert("✅ Message sent successfully!");
+          this.reset();
+        } else {
+          alert("⚠️ Please fill all fields correctly.");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
